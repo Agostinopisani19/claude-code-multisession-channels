@@ -105,15 +105,30 @@ Regular messages are routed to whichever session is active. The first session to
 | `SESSION_NAME` | basename of cwd | Display name for the session |
 | `ROUTER_PORT` | `8799` | HTTP port the router listens on |
 | `TELEGRAM_BOT_TOKEN` | — | Bot token (set in `~/.claude/channels/telegram/.env`) |
+| `GROQ_API_KEY` | — | Optional. Enables voice message transcription (set in `~/.claude/telegram-router/.env`) |
 
 ## Features
 
 - **Session switching** — `/switch` between sessions without restarting anything
 - **Auto-reconnect** — sessions re-register automatically if the router restarts
 - **Permission relay** — approve/deny Claude's tool use from Telegram with inline buttons
+- **Voice transcription** — voice notes are automatically transcribed via Groq Whisper (optional, requires API key)
 - **File attachments** — send photos/documents to Claude, receive files back
 - **Dead session detection** — stale sessions are reaped every 15 seconds
 - **Sender gating** — uses the same allowlist as the official Telegram plugin
+
+## Voice transcription (optional)
+
+Voice notes and audio messages can be automatically transcribed before forwarding to Claude. This requires a free [Groq](https://console.groq.com) API key.
+
+1. Get an API key at https://console.groq.com/keys
+2. Save it:
+   ```bash
+   echo 'GROQ_API_KEY=your-key-here' > ~/.claude/telegram-router/.env
+   ```
+3. Restart the router
+
+Without the key, voice notes are forwarded as `(voice message)` and Claude won't be able to hear them.
 
 ## Architecture
 
