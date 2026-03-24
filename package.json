@@ -1,0 +1,16 @@
+{
+  "name": "claude-code-multisession-channels",
+  "version": "1.0.0",
+  "description": "Multi-session Telegram router for Claude Code — switch between Claude sessions from Telegram",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "router": "bun router.ts",
+    "install-mcp": "echo 'Run: claude mcp add -s user tg-session -- bun run '$(pwd)'/session-channel.ts'"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "grammy": "^1.41.1",
+    "zod": "^3.22.0"
+  }
+}

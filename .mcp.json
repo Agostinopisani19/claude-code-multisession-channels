@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "tg-session": {
+      "command": "bun",
+      "args": ["run", "./session-channel.ts"]
+    }
+  }
+}
