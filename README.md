@@ -77,15 +77,21 @@ router: polling as @your_bot
 
 ### 4. Start Claude Code sessions
 
-In separate terminals:
+Open a separate terminal for each session. Navigate to your project directory first, then start Claude with a session name:
 
 ```bash
-SESSION_NAME=project1 cd ~/project1 && claude --dangerously-load-development-channels server:tg-session
+cd ~/project1
+SESSION_NAME=project1 claude --dangerously-load-development-channels server:tg-session
 ```
 
 ```bash
-SESSION_NAME=project2 cd ~/project2 && claude --dangerously-load-development-channels server:tg-session
+cd ~/project2
+SESSION_NAME=project2 claude --dangerously-load-development-channels server:tg-session
 ```
+
+If you're already in the directory you want, just run the `SESSION_NAME=... claude ...` command directly.
+
+> **Note:** Session names cannot contain spaces. Use dashes or underscores (e.g., `my-project`, `my_project`).
 
 ## Telegram commands
 
